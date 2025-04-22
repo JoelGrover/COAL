@@ -1,0 +1,119 @@
+/* Main report container aligned to the top-left */
+.report-container {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px; /* Reduced margin for better fit */
+}
+
+/* Heading styling */
+.report-heading {
+    font-size: 13px; /* Reduced font size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Vessel dropdown container positioned at the top-left */
+.vessel-container {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    width: 95%; /* Increased width to cover right-side space */
+    max-width: 1200px; /* Adjusted max width */
+    position: relative;
+    margin: 5px auto; /* Centered horizontally */
+}
+
+/* Section for dropdown selection */
+.vessel-dropdown-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+/* Label for dropdown */
+.vessel-label {
+    font-size: 12px; /* Reduced font size */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Dropdown styling */
+.vessel-select {
+    padding: 4px; /* Reduced padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px; /* Reduced font size */
+    width: 100%;
+}
+
+/* Table styling */
+.vessel-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    table-layout: fixed; /* Fixes table layout for better fit */
+}
+
+/* Table header row */
+.vessel-table-header {
+    background-color: #6a0dad;
+    color: white;
+    font-size: 12px; /* Reduced font size */
+    text-align: center;
+    padding: 6px; /* Reduced padding */
+}
+
+/* Table cells */
+.vessel-table-cell {
+    border: 1px solid #ccc;
+    padding: 4px; /* Reduced padding */
+    text-align: center;
+    font-size: 11px; /* Reduced font size */
+    white-space: nowrap; /* Prevents unnecessary wrapping */
+}
+
+/* Bold text in table */
+.vessel-bold {
+    font-weight: bold;
+}
+
+/* Spacer row for better readability */
+.vessel-table-row-spacer {
+    height: 5px; /* Reduced height */
+}
+
+/* Alternate row background color */
+.vessel-table-row:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Fixed height for rows to make table more compact */
+.vessel-table-row {
+    height: 25px; /* Adjusted height */
+}
+
+/* Remove excessive spacing */
+.vessel-table td,
+.vessel-table th {
+    padding: 5px; /* Smaller padding */
+    text-align: center;
+}
+
+/* Reduce container margin to bring everything in view */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}

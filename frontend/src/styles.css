@@ -1,0 +1,574 @@
+/* Base styles */
+:root {
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --secondary-color: #f5f5f5;
+  --border-color: #ddd;
+  --text-color: #333;
+  --text-light: #555;
+  --title-color: #2c3e50;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --calculated-bg: #eaf7fd;
+}
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  line-height: 1.5;
+  background-color: #f9f9f9;
+}
+
+/* Common container styles */
+.coal-container,
+.constraints-container,
+.logistics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Common title styles */
+.title,
+.constraints-title,
+.logistics-title {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Common form container styles */
+.form-container {
+  background-color: var(--secondary-color);
+  border-radius: var(--radius);
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.input-pair {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 200px;
+  margin-bottom: 10px;
+}
+
+.input-pair label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text-light);
+}
+
+.input-pair input,
+.input-pair select,
+.moisture-other-input {
+  padding: 12px; /* Increase padding for better spacing */
+  border: 1px solid var(--border-color);
+  border-radius: 6px; /* Slightly rounded edges */
+  font-size: 14px;
+  width: 100%;
+  background-color: white; /* Ensure the input boxes are clearly visible */
+  box-sizing: border-box;
+}
+
+/* Improve focus effect */
+.input-pair input:focus,
+.input-pair select:focus,
+.moisture-other-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Analysis container styles */
+.analysis-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* First row with 3 sections */
+.analysis-container > .analysis-section:nth-child(-n + 3) {
+  grid-row: 1;
+}
+.analysis-container > .analysis-section:nth-child(1) {
+  grid-column: 1 / span 1;
+}
+.analysis-container > .analysis-section:nth-child(2) {
+  grid-column: 2 / span 1;
+}
+.analysis-container > .analysis-section:nth-child(3) {
+  grid-column: 3 / span 1;
+}
+
+/* Second row with 3 sections */
+.analysis-container > .analysis-section:nth-child(4) {
+  grid-row: 2;
+  grid-column: 1 / span 1;
+}
+.analysis-container > .analysis-section:nth-child(5) {
+  grid-row: 2;
+  grid-column: 2 / span 1;
+}
+.analysis-container > .analysis-section:nth-child(6) {
+  grid-row: 2;
+  grid-column: 3 / span 1;
+}
+
+.analysis-section {
+  background-color: #fff;
+  border-radius: var(--radius);
+  padding: 15px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.analysis-section:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.section-title {
+  color: var(--title-color);
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+/* Table styles */
+.coal-table,
+.constraints-table,
+.logistics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.coal-table th,
+.coal-table td,
+.constraints-table th,
+.constraints-table td,
+.logistics-table th,
+.logistics-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+.coal-table th,
+.constraints-table th,
+.logistics-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.coal-table input,
+.constraints-table input,
+.logistics-table input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.calculated-row {
+  background-color: var(--calculated-bg);
+}
+
+.calculated-row td {
+  font-weight: normal;
+}
+
+/* Remarks section */
+.remark-container {
+  background-color: #fff;
+  border-radius: var(--radius);
+  padding: 15px;
+  box-shadow: var(--shadow);
+}
+
+.remark-title {
+  color: var(--title-color);
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 8px;
+}
+
+.remark-input {
+  width: 99%; /* Slightly less than container */
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 0 auto; /* Center within container */
+}
+
+
+
+/* Operating Constraints Component */
+.constraints-container {
+  padding: 20px;
+}
+
+.constraints-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.constraints-table-container {
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.constraints-table-container:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.pencil-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--title-color);
+}
+
+.modal-body {
+  padding: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text-light);
+}
+
+.form-input {
+  width: 99%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cancel-button {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #f2f2f2;
+}
+
+.save-button {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Logistics Component */
+.logistics-container {
+  padding: 20px;
+}
+
+.logistics-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--title-color);
+  margin: 0;
+  border-bottom: none;
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--text-light);
+  padding: 15px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.input-group .input {
+  flex: 1;
+  min-width: 120px;
+}
+
+.add-button {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-button:hover {
+  background-color: var(--primary-hover);
+}
+.logistics-container {
+  padding: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.card-content {
+  overflow-x: auto;
+}
+
+
+.nav-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.nav-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .analysis-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .analysis-section {
+    margin-bottom: 20px;
+  }
+
+  .input-pair {
+    flex: 1 0 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+}
+
+.logistics-container {
+  padding: 20px;
+}
+
+.logistics-section {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.logistics-section-header {
+  padding: 10px;
+  background-color: #4681db;
+  color: white;
+  cursor: pointer;
+}
+
+.logistics-section-content {
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.logistics-data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.logistics-data-table th,
+.logistics-data-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.logistics-edit-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.logistics-add-button {
+  padding: 5px 10px;
+  background-color: #73ca76;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.logistics-save-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logistics-save-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.logistics-save-button:hover {
+  background-color: #1976D2;
+}
+
