@@ -3,6 +3,7 @@ from pathlib import Path
 
 import environ
 
+
 env = environ.Env()
 environ.Env.read_env()  # reads the .env file
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'channels',
+    'rest_framework_simplejwt',
 ]
 
 ASGI_APPLICATION = 'backend.asgi.application'
@@ -129,6 +131,7 @@ SECURE_HSTS_SECONDS = 31536000  # Enforces HTTPS in browsers for a year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
+
 # Use secure cookies
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -181,4 +184,13 @@ LOGGING = {
             'propagate': True,  # Allow propagation of the log messages
         },
     },
+}
+
+
+CORS_ALLOW_ALL_ORIGINS = True  # for development only
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }

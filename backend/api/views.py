@@ -940,3 +940,57 @@ def delete_row(request):
             return JsonResponse({"error": str(e)}, status=400)
     else:
         return JsonResponse({"error": "Invalid HTTP method"}, status=405)
+
+# api/views.py
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, login
+import json
+from .models import CustomUser
+
+@csrf_exempt
+def register(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        name = data.get('name')
+        email = data.get('email')
+        password = data.get('password')
+        department = data.get('department')
+
+        if not (name and email and password and department):
+            return JsonResponse({'error': 'Please fill all fields'}, status=400)
+
+        if CustomUser.objects.filter(email=email).exists():
+            return JsonResponse({'error': 'Email already registered'}, status=400)
+
+        user = CustomUser.objects.create_user(
+            username=email,
+            email=email,
+            password=password,
+            first_name=name,
+            department=department
+        )
+        return JsonResponse({'message': 'User registered successfully'}, status=201)
+
+    return JsonResponse({'error': 'Only POST method allowed'}, status=405)
+
+
+@csrf_exempt
+def user_login(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        email = data.get('email')
+        password = data.get('password')
+
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'}, status=200)
+        else:
+            return JsonResponse({'error': 'Invalid credentials'}, status=401)
+
+    return JsonResponse({'error': 'Only POST method allowed'}, status=405)

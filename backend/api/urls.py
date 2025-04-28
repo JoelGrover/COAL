@@ -11,5 +11,8 @@ urlpatterns = [
     path('api/update-row/', views.update_row),
     path('api/save-sections/', views.save_sections),
     path('api/delete-row/', views.delete_row,),
+    path('register/', views.register),
+    path('login/', views.login,),
+    
 
 ]

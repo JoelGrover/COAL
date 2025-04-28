@@ -13,6 +13,9 @@ export default defineConfig({
     https: true,
      
   },
+  proxy: {
+    '/api': 'https://127.0.0.1:8000',  // Proxy to backend
+  },
   plugins: [react(),basicSsl()],
   resolve: {
     alias: {

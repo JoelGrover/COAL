@@ -3330,6 +3330,7 @@ const CollapsibleTables = () => {
     }
   };
   
+
   const handleSave = async () => {
     try {
       const response = await fetch(`${BACKEND_URL}/api/save-sections/`, {
