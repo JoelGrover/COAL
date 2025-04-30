@@ -98,7 +98,7 @@ const handleChange = async (event) => {
     // Fixed permissible ranges for Slagging or Fouling Propensity (Control Index)
     const slaggingControlIndex = {
         "Ash Fusion FT": { mergedLowMedium: ">1350", mergedHighSevere: "<1350" },
-        "Base-acid ratio": { mergedLowMedium: "<0.4 or >0.7", High: "0.4 to 0.7" },
+        "Base-acid ratio": { mergedLowMedium: "<0.4 or >0.7", High: "0.4 to 0.7" ,Severe:""},
         "T250 Temperature": { Low: ">1400", Medium: "1400 to 1245", High: "1245 to 1120", Severe: "<1120" },
         "Slagging Factor": { Low: "<0.6", Medium: "0.6 to 2.0", High: "2.0 to 2.6", Severe: ">2.6" },
         "Iron Calcium Ratio": { mergedLowMedium: "<0.3 or >3.0", mergedHighSevere: "0.3 to 3.0" },
@@ -326,11 +326,6 @@ const determineUltimateStatus = (param, value) => {
     })}
   </tbody>
 </table>
-
-
-
-
-
             {/* Section: Ultimate Analysis */}
             <h3 className="report-heading">Ultimate Analysis</h3>
             <table className="vessel-table">

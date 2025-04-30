@@ -73,12 +73,6 @@ export const saveCoalReport = async (data) => {
   }
 };
 
-// frontend/src/api.js
-
-
-// frontend/src/api.js
-
-// frontend/src/api.js
 
 export const fetchVesselDetails = async (vesselName) => {
   try {
